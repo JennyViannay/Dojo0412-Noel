@@ -1,4 +1,4 @@
-const giftChild = require("./childs/giftChild")
+const giftChild = require("./child/giftChild")
 const giftLutin = require("./lutin/giftLutin")
 
 module.exports = { giftChild, giftLutin }

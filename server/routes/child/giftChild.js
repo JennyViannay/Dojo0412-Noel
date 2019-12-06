@@ -1,6 +1,5 @@
 const express = require("express")
 const connection = require('../../conf')
-
 const router = express.Router()
 
 router.get('/', (req, res) => {
@@ -8,8 +7,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const newGift = req.body
-    
+    const newGift = {
+        name: req.body.nameGift,
+        status_id: req.body.statusId,
+        child_id: req.body.childId
+    }
+    console.log(newGift)
     const sqlRequest = 'INSERT INTO gift SET ?'
 
     connection.query(sqlRequest, newGift, (err, results) => {
@@ -20,6 +23,7 @@ router.post('/', (req, res) => {
         }
     })
 })
+
 // get one child list
 router.get('/:id_child', (req, res) => {
     const idChild = req.params.id_child
